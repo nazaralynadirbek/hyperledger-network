@@ -1,2 +1,6 @@
+# Hidden
 .DS_Store
-./composer-logs
+
+# Folders
+/server/composer-logs
+/client/node_modules

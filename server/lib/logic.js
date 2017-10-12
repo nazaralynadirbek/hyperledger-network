@@ -38,7 +38,7 @@ function offerTransaction(offer) {
 * @transaction
 */
 function tradeTransaction(trade) {
-    var offer = trade.offers[id];
+    var offer = trade.banker.offers[trade.id];
     var vendor = offer.vendor;
     var banker = offer.banker;
     var product = offer.product;
@@ -46,7 +46,7 @@ function tradeTransaction(trade) {
 
     if (customer.balance < product.price) {
         product.state = 'FOR_SALE';
-        trade.offers.splice(id, 1);
+        trade.banker.offers.splice(trade.id, 1);
 
         return getAssetRegistry('org.acme.model.Product')
             .then(function(productRegistry) {
@@ -66,6 +66,10 @@ function tradeTransaction(trade) {
 
     // Update owner
     product.owner = customer;
+    product.state = 'SOLD';
+
+    // Update offers
+    trade.banker.offers.splice(trade.id, 1);
 
     return getAssetRegistry('org.acme.model.Product')
         .then(function(productRegistry) {
@@ -82,5 +86,11 @@ function tradeTransaction(trade) {
         })
         .then(function(vendorRegistry) {
             return vendorRegistry.update(vendor)
+        })
+        .then(function() {
+            return getParticipantRegistry('org.acme.model.Banker')
+        })
+        .then(function(bankerRegistry) {
+            return bankerRegistry.update(trade.banker)
         })
 }
