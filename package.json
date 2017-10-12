@@ -1,0 +1,19 @@
+{
+  "name": "hyperledger-network",
+  "version": "0.0.1",
+  "description": "Hyperledger Composer Network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naznadmn/hyperledger-network.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/naznadmn/hyperledger-network/issues"
+  },
+  "homepage": "https://github.com/naznadmn/hyperledger-network#readme"
+}

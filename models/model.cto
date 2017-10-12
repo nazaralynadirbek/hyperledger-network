@@ -1,0 +1,47 @@
+/**
+* Model
+*/
+
+namespace org.acme.model
+
+enum ProductState {
+    o FOR_SALE
+    o BLOCKED
+    o SOLD
+}
+
+asset Product identified by id {
+    o String id
+    o String title
+    o Double price
+    o ProductState state
+
+    --> User owner
+    --> User created_by
+}
+
+abstract participant User identified by id {
+    o String id
+    o String name
+    o String surname
+    o Double balance
+}
+
+participant Vendor extends User {}
+participant Customer extends User {}
+participant Banker extends User {
+    o Offer[] offers optional
+    o String organization optional
+}
+
+transaction Offer {
+    --> Product product
+    --> Customer customer
+    --> Vendor vendor
+    --> Banker banker
+}
+
+transaction Trade {
+    o Integer id
+    --> Banker banker
+}
