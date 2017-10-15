@@ -1,0 +1,31 @@
+/**
+* Queries
+*/
+
+query q1 {
+    description: "Owner of product"
+    statement:
+        SELECT org.acme.model.Product
+            WHERE (owner == _$ownerParam AND created_by != _$ownerParam)
+}
+
+query q2 {
+    description: "Owner and creator of product"
+    statement:
+        SELECT org.acme.model.Product
+            WHERE (owner == _$ownerParam AND created_by == _$ownerParam)
+}
+
+query q3 {
+    description: "Creator of product"
+    statement:
+        SELECT org.acme.model.Product
+            WHERE (owner != _$ownerParam AND created_by == _$ownerParam)
+}
+
+query q4 {
+    description: "Select product for sale only"
+    statement:
+        SELECT org.acme.model.Product
+            WHERE (state == 'FOR_SALE')
+}

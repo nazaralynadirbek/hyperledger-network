@@ -24,11 +24,12 @@ abstract participant User identified by id {
     o String id
     o String name
     o String surname
+
     o Double balance
 }
 
-participant Vendor extends User {}
-participant Customer extends User {}
+participant Vendor extends User { }
+participant Customer extends User { }
 participant Banker extends User {
     o Offer[] offers optional
     o String organization optional
