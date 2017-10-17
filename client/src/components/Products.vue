@@ -48,7 +48,7 @@
                         console.log(error.response.data)
                     })
 
-                axios.get('http://localhost:3000/api/Product')
+                axios.get('http://localhost:3000/api/queries/q4')
                     .then((response) => {
                         this.products = response.data
                     })

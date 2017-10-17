@@ -8,6 +8,8 @@ import Dashboard from './components/Dashboard.vue';
 import Products from './components/Products.vue';
 import Profile from './components/Profile.vue';
 import Add from './components/Add.vue';
+import Users from './components/Users.vue';
+import Offers from './components/Offers.vue';
 
 // Router
 const routes = [
@@ -23,6 +25,12 @@ const routes = [
       }, {
           path: 'add',
           component: Add
+      }, {
+          path: 'users',
+          component: Users
+      }, {
+          path: 'offers',
+          component: Offers
       }]},
 ]
 const router = new VueRouter({ routes })

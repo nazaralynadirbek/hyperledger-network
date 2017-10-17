@@ -5,19 +5,31 @@
 
         .methods
             ul.list
-                li(v-if='vendor')
+                li(v-if='userState("Vendor")')
                     router-link(to='/dashboard/add')
                         .left
                             i.el-icon-check
                         .right
                             span Add product
-                li(v-if='!vendor')
+                li(v-if='userState("Customer")')
                     router-link(to='/dashboard/products')
                         .left
                             i.el-icon-search
                         .right
                             span Select product
-                li
+                li(v-if='userState("Banker")')
+                    router-link(to='/dashboard/users')
+                        .left
+                            i.el-icon-picture
+                        .right
+                            span Users
+                li(v-if='userState("Banker")')
+                    router-link(to='/dashboard/offers')
+                        .left
+                            i.el-icon-document
+                        .right
+                            span Offers
+                li(v-if='!userState("Banker")')
                     router-link(to='/dashboard/profile')
                         .left
                             i.el-icon-information
@@ -49,14 +61,11 @@
                 }
 
                 this.$router.push({ path: '/' });
-            }
-        },
-
-        computed: {
-            vendor: function() {
+            },
+            userState: function(type) {
                 var data = JSON.parse(localStorage.getItem('USER'));
 
-                return data.$class == 'org.acme.model.Vendor';
+                return data.$class == 'org.acme.model.' + type;
             }
         }
     }
