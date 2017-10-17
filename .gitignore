@@ -4,3 +4,4 @@
 # Folders
 /server/composer-logs
 /client/node_modules
+/server/node_modules

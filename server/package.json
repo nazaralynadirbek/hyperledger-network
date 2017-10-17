@@ -4,11 +4,11 @@
   "description": "Hyperledger Composer Network",
   "main": "index.js",
   "scripts": {
-      "archive": "composer archive create -a dist/hyperledger-network.bna -t dir -n .",
-      "deploy": "composer network deploy -a dist/hyperledger-network.bna -p hlfv1 -i PeerAdmin -s randomString",
-      "update": "composer network update -a dist/hyperledger-network.bna -p hlfv1 -i PeerAdmin -s randomString",
-      "ping": "composer network ping -n hyperledger-network -p hlfv1 -i admin -s adminpw",
-      "server": "composer-rest-server -p hlfv1 -n hyperledger-network -i admin -s adminpw -N never -w true"
+    "archive": "composer archive create -a dist/hyperledger-network.bna -t dir -n .",
+    "deploy": "composer network deploy -a dist/hyperledger-network.bna -p hlfv1 -i PeerAdmin -s randomString",
+    "update": "composer network update -a dist/hyperledger-network.bna -p hlfv1 -i PeerAdmin -s randomString",
+    "ping": "composer network ping -n hyperledger-network -p hlfv1 -i admin -s adminpw",
+    "server": "composer-rest-server -p hlfv1 -n hyperledger-network -i admin -s adminpw -N never -w true"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/naznadmn/hyperledger-network/issues"
   },
-  "homepage": "https://github.com/naznadmn/hyperledger-network#readme"
+  "homepage": "https://github.com/naznadmn/hyperledger-network#readme",
+  "dependencies": {
+    "axios": "^0.16.2"
+  }
 }

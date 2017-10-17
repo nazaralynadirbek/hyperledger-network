@@ -27935,13 +27935,11 @@ exports.push([module.i, "", ""]);
             };
 
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('http://localhost:3000/api/Offer', data).then(function (response) {
-                console.log(response.status);
+                if (response.status == 200) {
+                    _this2.$router.push('/dashboard/profile');
+                }
             }).catch(function (error) {
                 console.log(error.response.data);
-            });
-
-            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('http://localhost:3000/api/queries/q4').then(function (response) {
-                _this2.products = response.data;
             });
         }
     }

@@ -42,15 +42,12 @@
 
                 axios.post('http://localhost:3000/api/Offer', data)
                     .then((response) => {
-                        console.log(response.status)
+                        if (response.status == 200) {
+                            this.$router.push('/dashboard/profile');
+                        }
                     })
                     .catch((error) => {
                         console.log(error.response.data)
-                    })
-
-                axios.get('http://localhost:3000/api/queries/q4')
-                    .then((response) => {
-                        this.products = response.data
                     })
             }
         }
